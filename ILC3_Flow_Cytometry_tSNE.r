@@ -1,4 +1,4 @@
-#This script has been used to generate the tSNE-plots for figure 8j in the paper "The
+#This script has been used to generate the tSNE-plots for figure 8g in the paper "The
 #heterogeneity of human CD127+ innate lymphoid cells revealed by single-cell RNA
 #sequencing" by Björklund, Forkel et al. 
 
