@@ -15,7 +15,7 @@ Dependencies
 
 #### Cran packages:
 
-statmod, gplots, plotrix, Rtsne, MASS, vioplot
+statmod, gplots, plotrix, Rtsne, MASS, vioplot, pvclust
 
 #### Bioconductor:
 
@@ -155,7 +155,7 @@ are slightly differen each time. The results are stored in a list RES.
     savefile1 <- "data/tsne_10Pc_20i.Rdata"
     force.tsne<-FALSE
     if (!file.exists(savefile1) || force.tsne){
-      C<-cb0[var.genes[,2],]
+      C<-cb0[var.genes,]
       RES<-list()
       pdf("figures/tsne_10PC_20i.pdf")
       par(mfrow=c(4,4),mar=c(1,1,3,1))
@@ -178,12 +178,8 @@ Bootstrapped clustering with pvclust
 ------------------------------------
 
 pvclust based on euclidean distances instead of correlations are done
-using modified pvclust package from:
-<http://www.is.titech.ac.jp/~shimo/prog/pvclust/pvclust_unofficial_090824.zip>
 
-    # set to whaterver path you have for the pvclust package:
-    source("/Users/asab/jobb/data/local/bin/pvclust_unofficial_090824/pvclust.R")
-    source("/Users/asab/jobb/data/local/bin/pvclust_unofficial_090824/pvclust-internal.R")
+    library(pvclust)
     library(MASS)
 
     Rsum<-Reduce("cbind",lapply(RES,function(x) x$Y))
