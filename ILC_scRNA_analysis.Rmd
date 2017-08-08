@@ -13,7 +13,7 @@ Written by Åsa K. Björklund, 2015, asa.bjorklund@scilifelab.se
 ## Dependencies
 
 #### Cran packages:
-statmod, gplots, plotrix, Rtsne, MASS, vioplot 
+statmod, gplots, plotrix, Rtsne, MASS, vioplot, pvclust
 
 #### Bioconductor:
 sva
@@ -157,12 +157,10 @@ plot(RES[[1]]$Y,col=col.cell,pch=pch.ton,ylab='',xlab='')
 ```
 
 ## Bootstrapped clustering with pvclust
-pvclust based on euclidean distances instead of correlations are done using modified pvclust package from:
-http://www.is.titech.ac.jp/~shimo/prog/pvclust/pvclust_unofficial_090824.zip
+pvclust based on euclidean distances instead of correlations are done 
 ```{r message=FALSE, warning=FALSE}
 # set to whaterver path you have for the pvclust package:
-source("/Users/asab/jobb/data/local/bin/pvclust_unofficial_090824/pvclust.R")
-source("/Users/asab/jobb/data/local/bin/pvclust_unofficial_090824/pvclust-internal.R")
+library(pvclust)
 library(MASS)
 
 Rsum<-Reduce("cbind",lapply(RES,function(x) x$Y))
